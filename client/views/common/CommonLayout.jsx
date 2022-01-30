@@ -8,6 +8,7 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
+import Button from '@mui/material/Button';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import CarRentalIcon from '@mui/icons-material/CarRental';
@@ -55,6 +56,11 @@ function showActiveRents () {
   location.href = 'active_rents.html'
 }
 
+function logout () {
+  localStorage.clear()
+  location.href = '/'
+}
+
 export default function CommonLayout(props) {
   return (
     <Auth>
@@ -63,9 +69,10 @@ export default function CommonLayout(props) {
           <CssBaseline />
           <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <Toolbar>
-              <Typography variant="h6" noWrap component="div">
+              <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
                 Car Sharing
               </Typography>
+              <Button color="inherit" onClick={logout}>Logout</Button>
             </Toolbar>
           </AppBar>
           <Drawer
