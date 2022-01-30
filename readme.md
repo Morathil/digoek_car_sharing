@@ -35,3 +35,15 @@
 
 ## Registration
 - `https://www.freecodecamp.org/news/how-to-authenticate-users-and-implement-cors-in-nodejs-applications/`
+
+## Tech
+- Webpack https://webpack.js.org/
+- React https://reactjs.org/
+- MaterialUI https://mui.com/
+- ApolloClient React https://www.apollographql.com/docs/react/
+
+# Server
+## Tech
+- Mongoose (MongoDB object modeling) https://mongoosejs.com/
+- Expressjs (Node web server) https://expressjs.com/
+- GraphQL https://graphql.org/graphql-js/running-an-express-graphql-server/
