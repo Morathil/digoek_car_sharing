@@ -44,7 +44,7 @@ app.get('/cars/list_available', auth, async (req, res) => {
 })
 
 app.post('/cars/:carId/rent', auth, async (req, res) => {
-    const updatedCar = await CarModel.findByIdAndUpdate(req.params.carId, { availability: true });
+    const updatedCar = await CarModel.findByIdAndUpdate(req.params.carId, { availability: true }); // TODO: set availablity false
     const uModel = new RentModel({ days: req.body.days, carId: req.params.carId, accountId: req.body.accountId, price: req.body.price, startedAt: new Date().getTime() })
     const newRent = await uModel.save();
 

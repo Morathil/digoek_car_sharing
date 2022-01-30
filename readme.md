@@ -1,10 +1,12 @@
 # Docker
 ## Install
+- Install Docker
 - Docker Compose: `sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
 
 ## Build & Run
+- Git clone project
 - `npm install`
-- `npm run build`
+- `npm run build` // only for serving from docker express server
 - `sudo docker-compose up --build`
 
 # GraphQL
@@ -44,6 +46,6 @@
 
 # Server
 ## Tech
-- Mongoose (MongoDB object modeling) https://mongoosejs.com/
 - Expressjs (Node web server) https://expressjs.com/
+- Mongoose (MongoDB object modeling) https://mongoosejs.com/
 - GraphQL https://graphql.org/graphql-js/running-an-express-graphql-server/
