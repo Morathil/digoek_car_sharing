@@ -8,7 +8,7 @@ export const GET_CARS = gql`
       doors,
       id
     }
-  }  
+  }
 `;
 
 export const GET_AVAILABLE_CARS = gql`
@@ -23,5 +23,31 @@ export const GET_AVAILABLE_CARS = gql`
       owner,
       pricePerDay
     }
-  }  
+  }
+`;
+
+export const GET_ACTIVE_RENTS = gql`
+    query RentsFiltered($accountId: String!){
+      rentsFiltered(accountId: $accountId){
+        id,
+        days,
+        carId,
+        price,
+        startedAt,
+        canceled
+        }
+    }
+`;
+
+export const GET_ALL_RENTS = gql`
+    query RentsFilteredAll($accountId: String!){
+      rentsFilteredAll(accountId: $accountId){
+        id,
+        days,
+        carId,
+        price,
+        startedAt,
+        canceled
+        }
+    }
 `;

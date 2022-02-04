@@ -10,7 +10,7 @@ export const UPDATE_CAR = gql`
       owner,
       availability
     }
-  }  
+  }
 `;
 
 export const ADD_RENT = gql`
@@ -21,5 +21,17 @@ export const ADD_RENT = gql`
       accountId,
       price
     }
-  }  
+  }
+`;
+
+export const CANCLE_RENT = gql`
+  mutation CancelRent($id: String!) {
+    cancelRent(id: $id) {
+      carId,
+      days,
+      price,
+      startedAt,
+      canceled
+    }
+  }
 `;

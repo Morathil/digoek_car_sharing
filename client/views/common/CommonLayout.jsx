@@ -56,6 +56,10 @@ function showActiveRents () {
   location.href = 'active_rents.html'
 }
 
+function showOrderHistory () {
+  location.href = 'order_history.html'
+}
+
 function logout () {
   localStorage.clear()
   location.href = '/'
@@ -98,7 +102,7 @@ export default function CommonLayout(props) {
                   </ListItemIcon>
                   <ListItemText primary='Active rents' />
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={showOrderHistory}>
                   <ListItemIcon>
                     <HistoryIcon />
                   </ListItemIcon>
@@ -110,7 +114,7 @@ export default function CommonLayout(props) {
                     <AdminPanelSettingsIcon />
                   </ListItemIcon>
                   <ListItemText primary='Admin' />
-                </ListItem>                
+                </ListItem>
               </List>
             </Box>
           </Drawer>

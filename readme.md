@@ -32,7 +32,7 @@
 - `localhost:4000`
 
 ## Development
-- `npm run development`
+- `npm run dev`
 - Served on `localhost:8080`
 
 ## Registration

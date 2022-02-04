@@ -38,7 +38,7 @@ exports.Query = new GraphQLObjectType({
           }
           return cars
         }
-      },      
+      },
       rent: {
         type: new GraphQLList(carType),
         resolve:  async ()=> {
@@ -47,18 +47,44 @@ exports.Query = new GraphQLObjectType({
             throw new Error('error while fetching data')
           }
           return cars
-        }        
+        }
       },
       rentsActive: {
         type: new GraphQLList(carType),
         resolve:  async ()=> {
-          const cars = await RentModel.find({ cancelled: false, finishedAt: undefined })
-          if (!cars) {
+          const rents = await RentModel.find({ cancelled: false, finishedAt: undefined })
+          if (!rents) {
             throw new Error('error while fetching data')
           }
-          return cars
-        }        
-      }      
+          return rents
+        }
+      },
+      rentsFiltered: {
+        type: new GraphQLList(rentType),
+        args: {
+          accountId: {type: new GraphQLNonNull(GraphQLString)}
+        },
+        resolve: async (root, args)=> {
+          const rents = await RentModel.find({accountId: args.accountId, canceled: false, finishedAt: undefined})
+          if (!rents) {
+            throw new Error('error while fetching data')
+          }
+          return rents
+        }
+      },
+      rentsFilteredAll: {
+        type: new GraphQLList(rentType),
+        args: {
+          accountId: {type: new GraphQLNonNull(GraphQLString)}
+        },
+        resolve: async (root, args)=> {
+          const rents = await RentModel.find({accountId: args.accountId})
+          if (!rents) {
+            throw new Error('error while fetching data')
+          }
+          return rents
+        }
+      }
     }
   }
 })

@@ -9,7 +9,8 @@ const resolveAlias = {
 let entries = {
   rent_car: path.resolve(__dirname, 'client/rent_car.js'),
   index: path.resolve(__dirname, 'client/index.js'),
-  active_rents: path.resolve(__dirname, 'client/active_rents.js')
+  active_rents: path.resolve(__dirname, 'client/active_rents.js'),
+  order_history: path.resolve(__dirname, 'client/order_history.js')
 }
 
 let plugins = [
@@ -30,7 +31,13 @@ let plugins = [
     filename: 'active_rents.html',
     inject: 'body',
     chunks: ['active_rents']
-  })    
+  }),
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, 'client/order_history.html'),
+    filename: 'order_history.html',
+    inject: 'body',
+    chunks: ['order_history']
+  })
 ]
 
 module.exports = {
