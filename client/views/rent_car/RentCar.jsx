@@ -33,7 +33,7 @@ function App () {
 
   function onRent (carId, pricePerDay) {
     const price = days * pricePerDay
-    updateCar({ variables: { id: carId, availability: true }})
+    updateCar({ variables: { id: carId, availability: false }})
     addRent({ variables: { days: days, carId: carId, accountId: accountId, price: price } })
   }
 

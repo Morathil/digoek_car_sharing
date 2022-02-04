@@ -45,16 +45,16 @@ app.get('/cars/list_available', auth, async (req, res) => {
 })
 
 app.post('/cars/:carId/rent', auth, async (req, res) => {
-    const updatedCar = await CarModel.findByIdAndUpdate(req.params.carId, { availability: true }); // TODO: set availablity false
+    const updatedCar = await CarModel.findByIdAndUpdate(req.params.carId, { availability: false }); 
     const uModel = new RentModel({ days: req.body.days, carId: req.params.carId, accountId: req.body.accountId, price: req.body.price, startedAt: new Date().getTime() })
     const newRent = await uModel.save();
 
     return res.send({ rentId: newRent.id, carId: updatedCar.id })
 })
 
-app.post('/cars/:rentId/rent', auth, async (req, res) => {
-    const updatedCar = await CarModel.findByIdAndUpdate(req.params.carId, { availability: false });
+app.post('/rent/:rentId/cancel', auth, async (req, res) => {
     const uModel = await RentModel.findByIdAndUpdate(req.params.rentId, {canceled: true, finishedAt: new Date().toISOString().slice(0, 10)})
+    const updatedCar = await CarModel.findByIdAndUpdate(uModel.carId, { availability: true });
     const updatedRent = await uModel.save();
 
     return res.send({ rentId: updatedRent.id, carId: updatedCar.id })
