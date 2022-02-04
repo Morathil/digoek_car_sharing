@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import ActiveRents from 'client/views/active_rents/ActiveRents'
+import OrderHistory from 'client/views/order_history/OrderHistory'
 import CommonLayout from 'client/views/common/CommonLayout'
 
 ReactDom.render(
   <CommonLayout>
-    <ActiveRents />
+    <OrderHistory />
   </CommonLayout>
   ,
-  document.getElementById('active_rents')
+  document.getElementById('order_history')
 )

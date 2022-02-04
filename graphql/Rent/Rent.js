@@ -19,17 +19,17 @@ var RentSchema = new Schema({
     required:true
   },
   startedAt: {
-    type: Number,
+    type: String,
     required:true
   },
   finishedAt: {
-    type: Number,
+    type: String,
     required:false
   },
   canceled: {
     type: Boolean,
     required:false
-  }  
+  }
 });
 
 var Model = mongoose.model('Rent', RentSchema);

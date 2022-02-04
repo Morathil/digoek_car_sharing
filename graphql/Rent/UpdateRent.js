@@ -29,12 +29,12 @@ exports.CancelRent = {
   },
   resolve: async(root, args) =>{
       args.canceled = true
-      args.finishedAt = new Date().getTime()
+      args.finishedAt = new Date().toISOString().slice(0, 10)
 
-      const updatedCar = await RentModel.findByIdAndUpdate(args.id,args);
-      if (!updatedCar) {
+      const updatedRent = await RentModel.findByIdAndUpdate(args.id,args);
+      if (!updatedRent) {
         throw new Error('Error')
       }
-      return updatedCar;
+      return updatedRent;
   }
 }

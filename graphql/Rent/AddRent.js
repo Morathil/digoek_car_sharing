@@ -14,7 +14,8 @@ exports.AddRent = {
   },
   resolve: async(root, args)=> {
  //under the resolve method we get our arguments
-    args.startedAt = new Date().getTime()
+    args.startedAt = new Date().toISOString().slice(0, 10)
+    args.canceled = false
 
     const uModel = new RentModel(args);
     const newRent = await uModel.save();
