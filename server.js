@@ -52,6 +52,14 @@ app.post('/cars/:carId/rent', auth, async (req, res) => {
     return res.send({ rentId: newRent.id, carId: updatedCar.id })
 })
 
+app.post('/cars/:rentId/rent', auth, async (req, res) => {
+    const updatedCar = await CarModel.findByIdAndUpdate(req.params.carId, { availability: false });
+    const uModel = await RentModel.findByIdAndUpdate(req.params.rentId, {canceled: true, finishedAt: new Date().toISOString().slice(0, 10)})
+    const updatedRent = await uModel.save();
+
+    return res.send({ rentId: updatedRent.id, carId: updatedCar.id })
+})
+
 // REGISTER / LOGIN
 
 app.post("/register", async (req, res) => {
