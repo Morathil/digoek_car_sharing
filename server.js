@@ -30,7 +30,7 @@ app.set('port', (process.env.PORT || 4000));
 
 // GRAPHQL
 
-//app.use('/graphql', auth, graphqlHTTP({
+//app.use('/graphql', auth, graphqlHTTP({ // Would add authentication to graphql interface but for dev/testing reasons we removed it
 app.use('/graphql', graphqlHTTP({
     schema: Schema,
     rootValue: global,

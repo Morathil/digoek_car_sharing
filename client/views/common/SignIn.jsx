@@ -26,7 +26,6 @@ function SignIn(props) {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       localStorage.setItem('accessToken', data.token)
       localStorage.setItem('accountId', data._id)
       props.setAccessToken(data.token)

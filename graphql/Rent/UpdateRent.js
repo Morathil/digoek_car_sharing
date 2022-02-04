@@ -3,6 +3,7 @@ var GraphQLString = require('graphql').GraphQLString;
 var RentType = require('./RentType').RentType;
 var RentModel = require('./Rent');
 var GraphQLInt = require('graphql').GraphQLInt;
+var CarModel = require('../Car/Car');
 
 exports.UpdateRent = {
     type: RentType,
@@ -32,6 +33,7 @@ exports.CancelRent = {
       args.finishedAt = new Date().toISOString().slice(0, 10)
 
       const updatedRent = await RentModel.findByIdAndUpdate(args.id,args);
+      await CarModel.findByIdAndUpdate(updatedRent.carId, { availability: true })
       if (!updatedRent) {
         throw new Error('Error')
       }

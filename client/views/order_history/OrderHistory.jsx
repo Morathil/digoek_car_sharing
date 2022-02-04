@@ -10,7 +10,7 @@ function RentListAll (props) {
   const { loading, error, data } = useQuery(GET_ALL_RENTS, {
     variables: { accountId: accountId}
   })
-  //console.log(data)
+
   if (loading || error) {
     return null
   }

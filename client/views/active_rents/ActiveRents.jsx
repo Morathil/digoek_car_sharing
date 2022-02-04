@@ -15,8 +15,9 @@ function RentList (props) {
 
   function cancelRentTest (id) {
     cancelRent({ variables: { id: id } })
+    location.href = '/active_rents.html'
   }
-  //console.log(data)
+
   if (loading || error) {
     return null
   }
@@ -33,13 +34,7 @@ function RentList (props) {
         }}>Cancel</Button>
       </Grid>
      ) }
-
-    //{ field: 'finishedAt', headerName: 'Finished' },
-
   ]
-
-
-
 
   const rows = data.rentsFiltered
 
